@@ -11,4 +11,5 @@ build:
 all: $(DEST_TARGETS)
 
 $(DEST_TARGETS): dest/%.min.js:
-	docker run -i $(DOCKER_IMAGE_NAME) --compress --mangle --mangle-props < ./src/$*.js > ./dest/$*.min.js
+	/bin/echo -n "javascript:" > ./dest/$*.min.js
+	docker run -i --rm $(DOCKER_IMAGE_NAME) --compress --mangle --mangle-props < ./src/$*.js >> ./dest/$*.min.js
