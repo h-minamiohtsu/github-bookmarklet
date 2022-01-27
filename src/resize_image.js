@@ -1,9 +1,13 @@
-const comments = document.getElementsByName("comment[body]");
+function replaceImgTag(targetElement) {
+    const githubImgRegexp = /!\[image\]\(([^)]+)\)/g;
+    const replacedComment = targetElement.value.replace(githubImgRegexp, '<img src="$1" width="300px">');
+    targetElement.value = replacedComment;
+}
 
-comments.forEach(
-    function(comment) {
-        const githubImgRegexp = /!\[image\]\(([^)]+)\)/g;
-        const replacedComment = comment.value.replace(githubImgRegexp, '<img src="$1" width="300px">');
-        comment.value = replacedComment;
-    }
-);
+document.getElementsByName("comment[body]").forEach((element) => {
+    replaceImgTag(element)
+});
+
+document.getElementsByName("issue_comment[body]").forEach((element) => {
+    replaceImgTag(element)
+});
