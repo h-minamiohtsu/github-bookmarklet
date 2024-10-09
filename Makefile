@@ -1,4 +1,4 @@
-DEST_TARGETS=dest/resize_image.min.js
+DEST_TARGETS=dest/resize_image.min.js dest/load_all_contents.min.js
 DOCKER_IMAGE_NAME=h-minamiohtsu/uglifyjs
 .PHONY: help build all $(DEST_TARGETS)
 
