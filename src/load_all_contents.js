@@ -1,11 +1,19 @@
 (function(){
-    function clickLoadButton() {
+    function loadMoreIssueComments() {
         const button = document.querySelector('button[data-testid="issue-timeline-load-more-front"]');
         if (button) {
             button.click();
-            setTimeout(clickLoadButton, 1500);
+            setTimeout(loadMoreIssueComments, 1500);
         }
     }
+    loadMoreIssueComments();
 
-    clickLoadButton();
+    function loadMorePrComments() {
+        const button = document.querySelector('form.ajax-pagination-form button[type="submit"]');
+        if (button) {
+            button.click();
+            setTimeout(loadMorePrComments, 1500);
+        }
+    }
+    loadMorePrComments();
 })();
